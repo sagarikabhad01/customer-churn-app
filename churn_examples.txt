@@ -1,0 +1,117 @@
+================================================================================
+CUSTOMER CHURN PREDICTION - SAMPLE TEST CASES (CHURN vs NON-CHURN)
+================================================================================
+Use these sample profiles in the Streamlit app (`streamlit run app.py`) to test
+the defined detection criteria, risk tiers, and probability scoring.
+
+--------------------------------------------------------------------------------
+CHURN EXAMPLES (Likely to CHURN)
+--------------------------------------------------------------------------------
+
+1. Critical Churn - Monthly Contract & High Friction
+   Age: 55
+   Gender: Female
+   Tenure (Months): 6
+   Usage Frequency: 3
+   Support Calls: 8
+   Payment Delay (Days): 25
+   Subscription Type: Basic
+   Contract Length: Monthly
+   Total Spend ($): 250
+   Last Interaction (Days Ago): 25
+   Expected Result: CHURN (Critical Risk | Multiple critical breaches)
+
+2. Critical Churn - Severe Payment Delay & Low Spend
+   Age: 42
+   Gender: Male
+   Tenure (Months): 10
+   Usage Frequency: 8
+   Support Calls: 6
+   Payment Delay (Days): 28
+   Subscription Type: Standard
+   Contract Length: Quarterly
+   Total Spend ($): 320
+   Last Interaction (Days Ago): 22
+   Expected Result: CHURN (Critical Risk | Support Calls > 5, Payment Delay > 20, Spend < $500)
+
+3. High Churn Risk - Monthly Contract Despite Good Spend
+   Age: 34
+   Gender: Female
+   Tenure (Months): 18
+   Usage Frequency: 14
+   Support Calls: 2
+   Payment Delay (Days): 7
+   Subscription Type: Premium
+   Contract Length: Monthly
+   Total Spend ($): 750
+   Last Interaction (Days Ago): 10
+   Expected Result: CHURN (Critical Risk | Monthly contract segment)
+
+4. High Churn Risk - Excessive Support Calls & Senior Segment
+   Age: 58
+   Gender: Male
+   Tenure (Months): 14
+   Usage Frequency: 5
+   Support Calls: 7
+   Payment Delay (Days): 12
+   Subscription Type: Basic
+   Contract Length: Annual
+   Total Spend ($): 480
+   Last Interaction (Days Ago): 19
+   Expected Result: CHURN (Critical Risk | Support Calls > 5, Spend < $500, Age > 50)
+
+--------------------------------------------------------------------------------
+NON-CHURN EXAMPLES (Likely to STAY)
+--------------------------------------------------------------------------------
+
+1. Loyal Long-Term Customer (Low Risk)
+   Age: 32
+   Gender: Male
+   Tenure (Months): 36
+   Usage Frequency: 20
+   Support Calls: 1
+   Payment Delay (Days): 3
+   Subscription Type: Premium
+   Contract Length: Annual
+   Total Spend ($): 800
+   Last Interaction (Days Ago): 5
+   Expected Result: STAY (Low Risk | Strong tenure, spend, and low support friction)
+
+2. Stable Quarterly Subscriber (Low Risk)
+   Age: 28
+   Gender: Female
+   Tenure (Months): 24
+   Usage Frequency: 18
+   Support Calls: 0
+   Payment Delay (Days): 4
+   Subscription Type: Standard
+   Contract Length: Quarterly
+   Total Spend ($): 720
+   Last Interaction (Days Ago): 8
+   Expected Result: STAY (Low Risk | Zero support calls, timely payments)
+
+3. Healthy Mid-Tenure Customer (Low Risk)
+   Age: 39
+   Gender: Male
+   Tenure (Months): 30
+   Usage Frequency: 16
+   Support Calls: 2
+   Payment Delay (Days): 6
+   Subscription Type: Basic
+   Contract Length: Annual
+   Total Spend ($): 680
+   Last Interaction (Days Ago): 11
+   Expected Result: STAY (Low Risk | Annual contract, healthy spend)
+
+4. Borderline / Watchlist Non-Churn (Moderate Risk - Multiple Warnings)
+   Age: 45
+   Gender: Male
+   Tenure (Months): 24
+   Usage Frequency: 12
+   Support Calls: 4
+   Payment Delay (Days): 16
+   Subscription Type: Standard
+   Contract Length: Quarterly
+   Total Spend ($): 550
+   Last Interaction (Days Ago): 14
+   Expected Result: STAY (Moderate Risk | Multiple warnings: Support Calls 4-5, Delay 15-20, Spend $500-$599)
